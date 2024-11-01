@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -12,17 +13,20 @@
 <body>
     <!-- Шапка -->
     <header>
-        <div class="header-container compact-header">
+        <div class="header-container">
             <div class="logo">
                 <a href="index.html">ЧПК Інструменти</a>
             </div>
             <nav class="navigation">
                 <ul>
-<<<<<<< HEAD
-                    <li><a href="#" id="category-btn">Категорії <i class="fas fa-caret-down"></i></a></li>
-=======
-                    <li><a href="#" id="category-btn">Категорії товарів <i class="fas fa-caret-down"></i></a></li>
->>>>>>> 39e5d3178d6301b56ce0be3833cf9c93c215958d
+                    <li><a href="index.html">Головна</a></li>
+                    <li><a href="#">Категорії</a>
+                        <ul class="dropdown">
+                            <li><a href="milling.html">Фрези</a></li>
+                            <li><a href="turning.html">Токарні інструменти</a></li>
+                            <li><a href="drilling.html">Свердла</a></li>
+                        </ul>
+                    </li>
                     <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Кошик</a></li>
                     <li><a href="login.html"><i class="fas fa-user"></i> Вхід</a></li>
                     <li><a href="registration.html">Реєстрація</a></li>
@@ -32,21 +36,8 @@
         </div>
     </header>
 
-    <!-- Список категорій (спливаюче вікно) -->
-    <div id="category-list" class="hidden">
-        <ul>
-            <li><a href="milling.html">Фрези</a></li>
-            <li><a href="turning.html">Токарні інструменти</a></li>
-            <li><a href="drilling.html">Свердла</a></li>
-        </ul>
-    </div>
-
     <!-- Головний банер -->
-<<<<<<< HEAD
     <section class="hero-banner compact-banner">
-=======
-    <section class="hero-banner">
->>>>>>> 39e5d3178d6301b56ce0be3833cf9c93c215958d
         <div class="banner-content">
             <h1>Якість та Інновації у Світі ЧПК Інструментів</h1>
             <p>Знайдіть ідеальний інструмент для ваших потреб серед широкого асортименту продукції, яка гарантує продуктивність і надійність.</p>
@@ -55,11 +46,7 @@
     </section>
 
     <!-- Головний контент -->
-<<<<<<< HEAD
     <section class="main-content compact-content">
-=======
-    <section class="main-content">
->>>>>>> 39e5d3178d6301b56ce0be3833cf9c93c215958d
         <h2>Популярні Категорії</h2>
         <div class="category-cards">
             <div class="card">
@@ -84,11 +71,7 @@
     </section>
 
     <!-- Відгуки клієнтів -->
-<<<<<<< HEAD
     <section class="testimonials compact-testimonials">
-=======
-    <section class="testimonials">
->>>>>>> 39e5d3178d6301b56ce0be3833cf9c93c215958d
         <h2>Відгуки наших клієнтів</h2>
         <div class="testimonial-cards">
             <div class="testimonial">
@@ -107,11 +90,7 @@
     </section>
 
     <!-- Панель адміністратора -->
-<<<<<<< HEAD
     <section class="admin-panel compact-admin">
-=======
-    <section class="admin-panel">
->>>>>>> 39e5d3178d6301b56ce0be3833cf9c93c215958d
         <h2>Адміністративна Панель</h2>
         <div class="admin-controls">
             <form id="add-product-form">
@@ -148,11 +127,7 @@
     </section>
 
     <!-- Кошик -->
-<<<<<<< HEAD
     <section class="cart-section compact-cart">
-=======
-    <section class="cart-section">
->>>>>>> 39e5d3178d6301b56ce0be3833cf9c93c215958d
         <h2>Ваш кошик</h2>
         <div id="cart-items">
             <p>Ваш кошик порожній.</p>
@@ -166,11 +141,7 @@
 
     <!-- Підвал -->
     <footer>
-<<<<<<< HEAD
         <div class="footer-content compact-footer">
-=======
-        <div class="footer-content">
->>>>>>> 39e5d3178d6301b56ce0be3833cf9c93c215958d
             <p>© 2024 ЧПК Інструменти. Усі права захищені.</p>
             <div class="social-links">
                 <a href="#"><i class="fab fa-facebook"></i></a>
@@ -180,7 +151,6 @@
         </div>
     </footer>
 
-<<<<<<< HEAD
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const addProductForm = document.getElementById('add-product-form');
@@ -269,8 +239,5 @@
             updateCart();
         });
     </script>
-=======
-    <script src="script.js"></script>
->>>>>>> 39e5d3178d6301b56ce0be3833cf9c93c215958d
 </body>
 </html>
