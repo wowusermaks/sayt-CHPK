@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Деталі товару</title>
+    <title>Товар</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="product.js" defer></script>
 </head>
 <body>
-
     <!-- Шапка -->
     <header>
         <div class="header-container">
@@ -24,17 +24,11 @@
         </div>
     </header>
 
-    <!-- Деталі товару -->
-    <section class="product-details" id="product-details">
-        <img id="product-image" alt="Назва товару" class="product-image">
-        <div class="product-info">
-            <h2 id="product-title">Назва товару</h2>
-            <p id="product-price">Ціна: </p>
-            <p id="product-description">Детальний опис товару...</p>
-            <a href="#" class="btn-primary" id="add-to-cart">Додати в кошик</a>
+    <!-- Секція товару -->
+    <section class="product-details">
+        <div class="product-info" id="product-info">
+            <!-- Інформація про товар буде завантажуватися динамічно через JavaScript -->
         </div>
     </section>
-
-    <script src="product.js"></script>
 </body>
 </html>

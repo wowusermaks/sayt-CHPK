@@ -1,178 +1,69 @@
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     background-color: #f4f4f4;
-    overflow-x: hidden;
 }
 
 .header-container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     background-color: #333;
     padding: 10px 20px;
-    color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
 }
 
-.logo a {
-    color: #fff;
-    font-size: 1.5em;
+.header-container a {
+    color: white;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
+    margin: 0 15px;
 }
 
-.logo a:hover {
-    color: #FFD700;
+.header-container a:hover {
+    color: #ffd700;
+    transition: color 0.3s ease;
 }
 
-.navigation ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.navigation ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1em;
-    padding: 5px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.navigation ul li a:hover {
-    background-color: #555;
-    transform: scale(1.05);
-}
-
-.search-bar {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-#search-input {
-    padding: 10px;
-    font-size: 1em;
-    width: 250px;
+#category-list {
+    display: none;
+    background-color: white;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: box-shadow 0.3s;
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    padding: 10px;
+    z-index: 100;
 }
 
-#search-input:focus {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+#category-list ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-#search-button {
-    margin-left: 10px;
+#category-list ul li {
+    margin: 10px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.main-content {
+    padding: 20px;
+    text-align: center;
+}
+
+button, .btn-primary {
     background-color: #333;
-    color: #fff;
-    padding: 10px 15px;
+    color: white;
     border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-#search-button:hover {
-    background-color: #555;
-    transform: scale(1.1);
-}
-
-.categories, .product-catalog {
-    padding: 40px 20px;
-    text-align: center;
-    animation: fadeIn 1.5s ease-in-out;
-}
-
-.category-list, .product-list {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    animation: fadeInUp 1s ease-in-out;
-}
-
-.category-item, .product-item {
-    width: 200px;
-    text-align: center;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 8px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    animation: zoomIn 1.5s ease-in-out;
-}
-
-.category-item:hover, .product-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-.product-item img, .category-item img {
-    width: 100%;
-    border-radius: 8px;
-    transition: transform 0.3s;
-}
-
-.product-item img:hover, .category-item img:hover {
-    transform: scale(1.05);
-}
-
-.btn-primary {
-    display: inline-block;
-    background-color: #FFD700;
-    color: #333;
     padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    margin-top: 10px;
-    transition: background-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
 }
 
-.btn-primary:hover {
-    background-color: #FFA500;
-    box-shadow: 0 4px 10px rgba(255, 165, 0, 0.5);
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes zoomIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+button:hover, .btn-primary:hover {
+    background-color: #555;
+    transition: background-color 0.3s ease;
 }

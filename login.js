@@ -1,18 +1,21 @@
 
-document.getElementById('login-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    const username = document.getElementById('login-username').value;
-    const password = document.getElementById('login-password').value;
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('login-form');
 
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const user = users.find(user => user.username === username && user.password === password);
+    loginForm.addEventListener('submit', (event) => {
+        event.preventDefault();
 
-    if (user) {
-        alert('Вхід успішний!');
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        window.location.href = 'index.html';
-    } else {
-        alert('Невірне ім'я користувача або пароль.');
-    }
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const user = users.find(u => u.email === email && u.password === password);
+
+        if (user) {
+            alert('Вхід успішний! Ласкаво просимо, ' + user.username + '!');
+            window.location.href = 'index.html';
+        } else {
+            alert('Невірний email або пароль. Спробуйте ще раз.');
+        }
+    });
 });

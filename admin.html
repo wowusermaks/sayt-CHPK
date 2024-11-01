@@ -4,58 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Панель адміністратора</title>
+    <title>Адміністративна Панель</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="admin.js" defer></script>
 </head>
 <body>
-
-    <!-- Шапка -->
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <a href="index.html">ЧПК Інструменти - Панель адміністратора</a>
-            </div>
-            <nav class="navigation">
-                <ul>
-                    <li><a href="index.html">Головна</a></li>
-                    <li><a href="admin.html">Адміністрування</a></li>
-                    <li><a href="cart.html">Кошик</a></li>
-                </ul>
-            </nav>
+    <!-- Секція адміністративної панелі -->
+    <section class="admin-section">
+        <h2>Адміністративна Панель</h2>
+        <div id="user-list">
+            <!-- Список користувачів буде завантажуватися динамічно через JavaScript -->
         </div>
-    </header>
-
-    <!-- Панель адміністратора -->
-    <section class="admin-panel">
-        <h2>Управління товарами</h2>
-
-<section class="admin-users">
-    <h2>Зареєстровані користувачі</h2>
-    <div id="user-list"></div>
-</section>
-
-        <form id="product-form">
+        <form id="add-product-form">
+            <h3>Додати новий товар</h3>
             <label for="product-name">Назва товару:</label>
             <input type="text" id="product-name" required>
+
+            <label for="product-description">Опис товару:</label>
+            <textarea id="product-description" required></textarea>
+
+            <label for="product-price">Ціна:</label>
+            <input type="number" id="product-price" required>
+
+            <label for="product-image">URL зображення:</label>
+            <input type="text" id="product-image" required>
+
             <label for="product-category">Категорія:</label>
-            <select id="product-category">
+            <select id="product-category" required>
                 <option value="Фрези">Фрези</option>
                 <option value="Токарні інструменти">Токарні інструменти</option>
                 <option value="Свердла">Свердла</option>
             </select>
-            <label for="product-price">Ціна:</label>
-            <input type="text" id="product-price" required>
-            <label for="product-image">URL зображення:</label>
-            <input type="text" id="product-image" required>
-            <label for="product-description">Опис:</label>
-            <textarea id="product-description" rows="4" required></textarea>
+
             <button type="submit" class="btn-primary">Додати товар</button>
         </form>
-
-        <h3>Існуючі товари</h3>
-        <div id="product-list"></div>
     </section>
-
-    <script src="admin.js"></script>
 </body>
 </html>
