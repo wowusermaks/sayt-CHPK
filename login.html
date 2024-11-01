@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вхід</title>
+    <title>Вхід користувача</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -19,21 +19,20 @@
                 <ul>
                     <li><a href="index.html">Головна</a></li>
                     <li><a href="registration.html">Реєстрація</a></li>
+                    <li><a href="cart.html">Кошик</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Секція входу -->
-    <section class="login-section">
-        <h2>Вхід</h2>
+    <!-- Форма входу користувача -->
+    <section class="login">
+        <h2>Вхід користувача</h2>
         <form id="login-form">
-            <label for="email">Електронна пошта:</label>
-            <input type="email" id="email" required>
-
-            <label for="password">Пароль:</label>
-            <input type="password" id="password" required>
-
+            <label for="login-username">Ім'я користувача:</label>
+            <input type="text" id="login-username" required>
+            <label for="login-password">Пароль:</label>
+            <input type="password" id="login-password" required>
             <button type="submit" class="btn-primary">Увійти</button>
         </form>
     </section>

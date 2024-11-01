@@ -1,47 +1,48 @@
 
-document.addEventListener('DOMContentLoaded', () => {
-    const cartItemsContainer = document.querySelector('.cart-items');
+document.addEventListener("DOMContentLoaded", () => {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const cartItemsContainer = document.getElementById('cart-items');
     const totalPriceElement = document.getElementById('total-price');
 
-    // Завантаження товарів з кошика з localStorage
-    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    renderCartItems(cartItems);
+    let totalPrice = 0;
 
-    // Функція для відображення товарів у кошику
-    function renderCartItems(items) {
-        cartItemsContainer.innerHTML = '';
-        let totalPrice = 0;
+    // Відображення товарів у кошику
+    cartItems.forEach((item, index) => {
+        const itemElement = document.createElement('div');
+        itemElement.classList.add('cart-item');
+        itemElement.innerHTML = `
+            <p>${item.name} - ${item.price}</p>
+            <button class="remove-item" data-index="${index}">Видалити</button>
+        `;
+        cartItemsContainer.appendChild(itemElement);
+        totalPrice += parseFloat(item.price.replace(/[^\d]/g, ''));
+    });
 
-        if (items.length === 0) {
-            cartItemsContainer.innerHTML = '<p>Кошик порожній</p>';
-        } else {
-            items.forEach((item, index) => {
-                const cartItem = document.createElement('div');
-                cartItem.classList.add('cart-item');
-                cartItem.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}">
-                    <h3>${item.name}</h3>
-                    <p class="price">${item.price}</p>
-                    <a href="#" class="remove-item" data-index="${index}">Видалити</a>
-                `;
-                cartItemsContainer.appendChild(cartItem);
+    totalPriceElement.textContent = `Загальна вартість: ${totalPrice} грн`;
 
-                // Обчислення загальної суми
-                totalPrice += parseFloat(item.price.replace(/[^\d]/g, ''));
-            });
+    // Видалення товарів із кошика
+    document.querySelectorAll('.remove-item').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const index = event.target.getAttribute('data-index');
+            cartItems.splice(index, 1);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            window.location.reload();
+        });
+    });
 
-            totalPriceElement.textContent = totalPrice.toFixed(2);
+    // Оформлення замовлення
+    const checkoutForm = document.getElementById('checkout-form');
+    checkoutForm.addEventListener('submit', (event) => {
+        event.preventDefault();
 
-            // Додавання обробників подій для видалення товарів
-            document.querySelectorAll('.remove-item').forEach(button => {
-                button.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    const index = button.getAttribute('data-index');
-                    cartItems.splice(index, 1);
-                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-                    renderCartItems(cartItems);
-                });
-            });
-        }
-    }
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const address = document.getElementById('address').value;
+
+        alert(`Дякуємо, ${name}! Ваше замовлення підтверджено і буде відправлено на адресу: ${address}.`);
+
+        // Очищення кошика після оформлення замовлення
+        localStorage.removeItem('cartItems');
+        window.location.reload();
+    });
 });
