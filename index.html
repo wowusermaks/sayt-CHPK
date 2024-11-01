@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог товарів</title>
+    <title>ЧПК Інструменти - Інноваційний Магазин</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-
     <!-- Шапка -->
     <header>
         <div class="header-container">
@@ -17,82 +19,139 @@
             </div>
             <nav class="navigation">
                 <ul>
-                    <li><a href="index.html">Головна</a></li>
-                    <li><a href="milling.html">Фрези</a></li>
-                    <li><a href="turning.html">Токарні інструменти</a></li>
-                    <li><a href="drilling.html">Свердла</a></li>
-                    <li><a href="cart.html">Кошик</a></li>
+                    <li><a href="#" id="category-btn">Категорії товарів <i class="fas fa-caret-down"></i></a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Кошик</a></li>
+                    <li><a href="login.html"><i class="fas fa-user"></i> Вхід</a></li>
+                    <li><a href="registration.html">Реєстрація</a></li>
+                    <li><a href="admin.html"><i class="fas fa-user-cog"></i> Адмін Панель</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Банери для акцій -->
-    <section class="promo-banners">
-        <div class="banner">
-            <h2>Знижка 20% на всі фрези!</h2>
-            <p>Тільки до кінця місяця, поспішайте зробити замовлення!</p>
-            <a href="milling.html" class="btn-primary">Переглянути акцію</a>
-        </div>
-        <div class="banner">
-            <h2>Спеціальна пропозиція на токарні інструменти</h2>
-            <p>Знижки до 15% на нові моделі.</p>
-            <a href="turning.html" class="btn-primary">Дізнатись більше</a>
+    <!-- Список категорій (спливаюче вікно) -->
+    <div id="category-list" class="hidden">
+        <ul>
+            <li><a href="milling.html">Фрези</a></li>
+            <li><a href="turning.html">Токарні інструменти</a></li>
+            <li><a href="drilling.html">Свердла</a></li>
+        </ul>
+    </div>
+
+    <!-- Головний банер -->
+    <section class="hero-banner">
+        <div class="banner-content">
+            <h1>Якість та Інновації у Світі ЧПК Інструментів</h1>
+            <p>Знайдіть ідеальний інструмент для ваших потреб серед широкого асортименту продукції, яка гарантує продуктивність і надійність.</p>
+            <a href="#" class="btn-primary">Дізнатися більше</a>
         </div>
     </section>
 
-    <!-- Секція категорій інструментів -->
-    <section class="categories">
-        <h2>Категорії інструментів</h2>
-        <div class="category-list">
-            <div class="category-item">
-                <a href="milling.html">
-                    <img src="images/milling_tool.jpg" alt="Фрези">
-                    <h3>Фрези</h3>
-                </a>
+    <!-- Головний контент -->
+    <section class="main-content">
+        <h2>Популярні Категорії</h2>
+        <div class="category-cards">
+            <div class="card">
+                <img src="images/milling_tools.jpg" alt="Фрези">
+                <h3>Фрези</h3>
+                <p>Високоточні фрези для вашого виробництва. Різноманітність діаметрів і форм.</p>
+                <a href="milling.html" class="btn-secondary">Переглянути</a>
             </div>
-            <div class="category-item">
-                <a href="turning.html">
-                    <img src="images/turning_tool.jpg" alt="Токарні інструменти">
-                    <h3>Токарні інструменти</h3>
-                </a>
+            <div class="card">
+                <img src="images/turning_tools.jpg" alt="Токарні інструменти">
+                <h3>Токарні інструменти</h3>
+                <p>Якісні токарні інструменти для найкращих результатів обробки.</p>
+                <a href="turning.html" class="btn-secondary">Переглянути</a>
             </div>
-            <div class="category-item">
-                <a href="drilling.html">
-                    <img src="images/drilling_tool.jpg" alt="Свердла">
-                    <h3>Свердла</h3>
-                </a>
+            <div class="card">
+                <img src="images/drilling_tools.jpg" alt="Свердла">
+                <h3>Свердла</h3>
+                <p>Надійні свердла для будь-яких завдань. Довговічність та ефективність.</p>
+                <a href="drilling.html" class="btn-secondary">Переглянути</a>
             </div>
         </div>
     </section>
 
-    <!-- Секція каталогу товарів -->
-    <section id="catalog" class="product-catalog">
-        <h2>Каталог товарів</h2>
-        <div class="filter-bar">
-            <label for="sort">Сортувати за:</label>
-            <select id="sort">
-                <option value="popularity">Популярністю</option>
-                <option value="price-low">Ціною: від низької до високої</option>
-                <option value="price-high">Ціною: від високої до низької</option>
-            </select>
-
-            <label for="category-filter">Категорія:</label>
-            <select id="category-filter">
-                <option value="all">Всі</option>
-                <option value="Фрези">Фрези</option>
-                <option value="Токарні інструменти">Токарні інструменти</option>
-                <option value="Свердла">Свердла</option>
-            </select>
+    <!-- Відгуки клієнтів -->
+    <section class="testimonials">
+        <h2>Відгуки наших клієнтів</h2>
+        <div class="testimonial-cards">
+            <div class="testimonial">
+                <p>"Замовляю інструменти лише тут! Висока якість, швидка доставка та чудове обслуговування клієнтів."</p>
+                <h4>- Іван Петрович</h4>
+            </div>
+            <div class="testimonial">
+                <p>"ЧПК інструменти цього магазину перевершили всі очікування. Продуктивність на найвищому рівні!"</p>
+                <h4>- Олександр Коваль</h4>
+            </div>
+            <div class="testimonial">
+                <p>"Завжди мають у наявності потрібний інструмент. Дуже задоволений співпрацею."</p>
+                <h4>- Марія Гончар</h4>
+            </div>
         </div>
-        <div class="product-list"></div>
     </section>
 
-    <!-- Рекомендовані товари -->
-    <section class="recommended-products">
-        <h2>Рекомендовані товари</h2>
-        <div class="recommended-list"></div>
+    <!-- Панель адміністратора -->
+    <section class="admin-panel">
+        <h2>Адміністративна Панель</h2>
+        <div class="admin-controls">
+            <form id="add-product-form">
+                <h3>Додати новий товар</h3>
+                <label for="product-name">Назва товару:</label>
+                <input type="text" id="product-name" required>
+
+                <label for="product-description">Опис товару:</label>
+                <textarea id="product-description" required></textarea>
+
+                <label for="product-price">Ціна:</label>
+                <input type="number" id="product-price" required>
+
+                <label for="product-image">URL зображення:</label>
+                <input type="text" id="product-image" required>
+
+                <label for="product-category">Категорія:</label>
+                <select id="product-category" required>
+                    <option value="Фрези">Фрези</option>
+                    <option value="Токарні інструменти">Токарні інструменти</option>
+                    <option value="Свердла">Свердла</option>
+                </select>
+
+                <button type="submit" class="btn-primary">Додати товар</button>
+            </form>
+
+            <div class="product-list">
+                <h3>Список Товарів</h3>
+                <ul id="product-list">
+                    <!-- Товари будуть додаватися динамічно через JavaScript -->
+                </ul>
+            </div>
+        </div>
     </section>
+
+    <!-- Кошик -->
+    <section class="cart-section">
+        <h2>Ваш кошик</h2>
+        <div id="cart-items">
+            <p>Ваш кошик порожній.</p>
+        </div>
+        <div id="cart-summary" class="hidden">
+            <h3>Загальна інформація</h3>
+            <p id="cart-total-price">Загальна сума: 0 грн</p>
+            <button id="checkout-btn" class="btn-primary">Перейти до оплати</button>
+        </div>
+    </section>
+
+    <!-- Підвал -->
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 ЧПК Інструменти. Усі права захищені.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
