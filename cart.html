@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кошик</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="cart.js" defer></script>
 </head>
 <body>
+
     <!-- Шапка -->
     <header>
         <div class="header-container">
@@ -18,6 +18,10 @@
             <nav class="navigation">
                 <ul>
                     <li><a href="index.html">Головна</a></li>
+                    <li><a href="milling.html">Фрези</a></li>
+                    <li><a href="turning.html">Токарні інструменти</a></li>
+                    <li><a href="drilling.html">Свердла</a></li>
+                    <li><a href="cart.html">Кошик</a></li>
                 </ul>
             </nav>
         </div>
@@ -26,7 +30,13 @@
     <!-- Секція кошика -->
     <section class="cart-section">
         <h2>Ваш кошик</h2>
-        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-items"></div>
+        <div class="cart-total">
+            <h3>Загальна сума: <span id="total-price">0</span></h3>
+            <a href="#" class="btn-primary" id="checkout-button">Оформити замовлення</a>
+        </div>
     </section>
+
+    <script src="cart.js"></script>
 </body>
 </html>

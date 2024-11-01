@@ -12,10 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const user = users.find(u => u.email === email && u.password === password);
 
         if (user) {
-            alert('Вхід успішний! Ласкаво просимо, ' + user.username + '!');
+            alert(`Вітаємо, ${user.username}! Ви успішно увійшли.`);
             window.location.href = 'index.html';
         } else {
-            alert('Невірний email або пароль. Спробуйте ще раз.');
+            alert('Невірна електронна пошта або пароль. Спробуйте ще раз.');
         }
     });
 });

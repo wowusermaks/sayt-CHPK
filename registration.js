@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         users.push({ username, email, password });
         localStorage.setItem('users', JSON.stringify(users));
 
-        alert('Реєстрація успішна! Ви можете увійти.');
+        alert('Реєстрація успішна! Ви можете увійти до системи.');
         window.location.href = 'login.html';
     });
 });

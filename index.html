@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ЧПК Інструменти</title>
+    <title>Каталог товарів</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
+
     <!-- Шапка -->
     <header>
         <div class="header-container">
@@ -17,28 +17,83 @@
             </div>
             <nav class="navigation">
                 <ul>
-                    <li><a href="#" id="category-btn">Категорії товарів</a></li>
+                    <li><a href="index.html">Головна</a></li>
+                    <li><a href="milling.html">Фрези</a></li>
+                    <li><a href="turning.html">Токарні інструменти</a></li>
+                    <li><a href="drilling.html">Свердла</a></li>
                     <li><a href="cart.html">Кошик</a></li>
-                    <li><a href="login.html">Вхід</a></li>
-                    <li><a href="registration.html">Реєстрація</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Список категорій (спливаюче вікно) -->
-    <div id="category-list" class="hidden">
-        <ul>
-            <li><a href="milling.html">Фрези</a></li>
-            <li><a href="turning.html">Токарні інструменти</a></li>
-            <li><a href="drilling.html">Свердла</a></li>
-        </ul>
-    </div>
-
-    <!-- Головний контент -->
-    <section class="main-content">
-        <h1>Ласкаво просимо до магазину ЧПК інструментів</h1>
-        <p>Тут ви знайдете все необхідне для роботи з ЧПК верстатами.</p>
+    <!-- Банери для акцій -->
+    <section class="promo-banners">
+        <div class="banner">
+            <h2>Знижка 20% на всі фрези!</h2>
+            <p>Тільки до кінця місяця, поспішайте зробити замовлення!</p>
+            <a href="milling.html" class="btn-primary">Переглянути акцію</a>
+        </div>
+        <div class="banner">
+            <h2>Спеціальна пропозиція на токарні інструменти</h2>
+            <p>Знижки до 15% на нові моделі.</p>
+            <a href="turning.html" class="btn-primary">Дізнатись більше</a>
+        </div>
     </section>
+
+    <!-- Секція категорій інструментів -->
+    <section class="categories">
+        <h2>Категорії інструментів</h2>
+        <div class="category-list">
+            <div class="category-item">
+                <a href="milling.html">
+                    <img src="images/milling_tool.jpg" alt="Фрези">
+                    <h3>Фрези</h3>
+                </a>
+            </div>
+            <div class="category-item">
+                <a href="turning.html">
+                    <img src="images/turning_tool.jpg" alt="Токарні інструменти">
+                    <h3>Токарні інструменти</h3>
+                </a>
+            </div>
+            <div class="category-item">
+                <a href="drilling.html">
+                    <img src="images/drilling_tool.jpg" alt="Свердла">
+                    <h3>Свердла</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секція каталогу товарів -->
+    <section id="catalog" class="product-catalog">
+        <h2>Каталог товарів</h2>
+        <div class="filter-bar">
+            <label for="sort">Сортувати за:</label>
+            <select id="sort">
+                <option value="popularity">Популярністю</option>
+                <option value="price-low">Ціною: від низької до високої</option>
+                <option value="price-high">Ціною: від високої до низької</option>
+            </select>
+
+            <label for="category-filter">Категорія:</label>
+            <select id="category-filter">
+                <option value="all">Всі</option>
+                <option value="Фрези">Фрези</option>
+                <option value="Токарні інструменти">Токарні інструменти</option>
+                <option value="Свердла">Свердла</option>
+            </select>
+        </div>
+        <div class="product-list"></div>
+    </section>
+
+    <!-- Рекомендовані товари -->
+    <section class="recommended-products">
+        <h2>Рекомендовані товари</h2>
+        <div class="recommended-list"></div>
+    </section>
+
+    <script src="script.js"></script>
 </body>
 </html>

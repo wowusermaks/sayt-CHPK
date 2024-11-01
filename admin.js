@@ -1,20 +1,31 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-    const userList = document.getElementById('user-list');
-    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const userList = document.querySelector('.user-list');
+    const addProductForm = document.getElementById('add-product-form');
 
-    if (users.length === 0) {
-        userList.innerHTML = '<p>Немає зареєстрованих користувачів.</p>';
-    } else {
-        users.forEach(user => {
-            const userElement = document.createElement('div');
-            userElement.classList.add('user-item');
-            userElement.innerHTML = `<p>Ім'я: ${user.username}, Email: ${user.email}</p>`;
-            userList.appendChild(userElement);
-        });
+    // Завантаження користувачів з localStorage
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    renderUserList(users);
+
+    // Функція для відображення списку користувачів
+    function renderUserList(users) {
+        userList.innerHTML = '';
+        if (users.length === 0) {
+            userList.innerHTML = '<p>Немає зареєстрованих користувачів.</p>';
+        } else {
+            users.forEach(user => {
+                const userItem = document.createElement('div');
+                userItem.classList.add('user-item');
+                userItem.innerHTML = `
+                    <p>Ім'я користувача: ${user.username}</p>
+                    <p>Електронна пошта: ${user.email}</p>
+                `;
+                userList.appendChild(userItem);
+            });
+        }
     }
 
-    const addProductForm = document.getElementById('add-product-form');
+    // Додавання нового товару
     addProductForm.addEventListener('submit', (event) => {
         event.preventDefault();
 

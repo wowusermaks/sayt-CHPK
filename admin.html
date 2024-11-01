@@ -4,29 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Адміністративна Панель</title>
+    <title>Панель адміністратора</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="admin.js" defer></script>
 </head>
 <body>
-    <!-- Секція адміністративної панелі -->
-    <section class="admin-section">
-        <h2>Адміністративна Панель</h2>
-        <div id="user-list">
-            <!-- Список користувачів буде завантажуватися динамічно через JavaScript -->
+
+    <!-- Шапка -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">ЧПК Інструменти</a>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html">Головна</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
+
+    <!-- Секція адміністратора -->
+    <section class="admin-section">
+        <h2>Користувачі</h2>
+        <div class="user-list"></div>
+
+        <h2>Товари</h2>
         <form id="add-product-form">
-            <h3>Додати новий товар</h3>
             <label for="product-name">Назва товару:</label>
             <input type="text" id="product-name" required>
 
-            <label for="product-description">Опис товару:</label>
+            <label for="product-description">Опис:</label>
             <textarea id="product-description" required></textarea>
 
             <label for="product-price">Ціна:</label>
-            <input type="number" id="product-price" required>
+            <input type="text" id="product-price" required>
 
-            <label for="product-image">URL зображення:</label>
+            <label for="product-image">Посилання на зображення:</label>
             <input type="text" id="product-image" required>
 
             <label for="product-category">Категорія:</label>
@@ -39,5 +52,7 @@
             <button type="submit" class="btn-primary">Додати товар</button>
         </form>
     </section>
+
+    <script src="admin.js"></script>
 </body>
 </html>
