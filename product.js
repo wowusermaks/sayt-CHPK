@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (selectedProduct) {
         productInfo.innerHTML = `
             <h2>${selectedProduct.name}</h2>
-            <img src="${selectedProduct.image}" alt="${selectedProduct.name}">
+            <img src="images/${selectedProduct.image}" alt="${selectedProduct.name}">
             <p>${selectedProduct.description}</p>
             <p class="price">${selectedProduct.price}</p>
             <button id="add-to-cart" class="btn-primary">Додати в кошик</button>
