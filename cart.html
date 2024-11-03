@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кошик</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">ЧПК Інструменти</a>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html">Головна</a></li>
+                    <li><a href="cart.html">Кошик</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Список товарів у кошику -->
+    <section class="cart">
+        <h2>Ваш кошик</h2>
+        <div id="cart-items"></div>
+        <div id="total-price">Загальна вартість: 0 грн</div>
+    </section>
+
+    <!-- Форма оформлення замовлення -->
+    <section class="checkout">
+        <h3>Оформлення замовлення</h3>
+        <form id="checkout-form">
+            <label for="name">Ім'я:</label>
+            <input type="text" id="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="address">Адреса:</label>
+            <input type="text" id="address" required>
+            <button type="submit" class="btn-primary">Підтвердити замовлення</button>
+        </form>
+    </section>
+
+    <script src="cart.js"></script>
+</body>
+</html>
