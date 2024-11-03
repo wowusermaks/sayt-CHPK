@@ -1,88 +1,362 @@
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог товарів</title>
+    <title>Інтернет-магазин ЧПК інструменту</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        header h1 {
+            text-align: center;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f0a500;
+        }
+
+        .hero-section {
+            background: url('images/hero-bg.jpg') no-repeat center center/cover;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background: #f0a500;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #333;
+        }
+
+        .products-section {
+            padding: 50px 0;
+            background: #f9f9f9;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .category {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        .category:hover {
+            background: #f0a500;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product {
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            text-align: center;
+            transition: box-shadow 0.3s;
+        }
+
+        .product:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart {
+            background: #f0a500;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background: #333;
+        }
+
+        .contact-section {
+            padding: 50px 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin-top: 10px;
+        }
+
+        form input, form textarea {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form button {
+            margin-top: 15px;
+            background: #f0a500;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        form button:hover {
+            background: #333;
+        }
+
+        .cart-section {
+            padding: 50px 0;
+            background: #f9f9f9;
+        }
+
+        .cart {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .cart th, .cart td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .admin-panel {
+            padding: 50px 0;
+        }
+
+        .admin-panel h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .admin-panel .admin-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .admin-options button {
+            padding: 10px;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .admin-options button:hover {
+            background: #f0a500;
+        }
+    </style>
 </head>
 <body>
-
-    <!-- Шапка -->
     <header>
-        <div class="header-container">
-            <div class="logo">
-                <a href="index.html">ЧПК Інструменти</a>
-            </div>
-            <nav class="navigation">
+        <div class="container">
+            <h1>ЧПК Інструмент - Магазин для Професіоналів</h1>
+            <nav>
                 <ul>
-                    <li><a href="index.html">Головна</a></li>
-                    <li><a href="registration.html">Реєстрація</a></li>
-                    <li><a href="login.html">Вхід</a></li>
-                    <li><a href="cart.html">Кошик</a></li>
+                    <li><a href="#home">Головна</a></li>
+                    <li><a href="#products">Товари</a></li>
+                    <li><a href="#cart">Кошик</a></li>
+                    <li><a href="#contact">Контакти</a></li>
+                    <li><a href="#admin">Адмін Панель</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Пошук -->
-    <div class="search-bar">
-        <input type="text" id="search-input" placeholder="Пошук інструментів...">
-        <button id="search-button">Шукати</button>
-    </div>
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h2>Кращі інструменти для ЧПК-обробки</h2>
+            <p>Оберіть якісні інструменти для вашого бізнесу</p>
+            <a href="#products" class="btn">Переглянути товари</a>
+        </div>
+    </section>
 
-    <!-- Секція категорій інструментів -->
-    <section class="categories">
-        <h2>Категорії інструментів</h2>
-        <div class="category-list">
-            <div class="category-item">
-                <img src="images/milling_tool.jpg" alt="Фрези">
-                <h3>Фрези</h3>
+    <section id="products" class="products-section">
+        <div class="container">
+            <h2>Наші Товари</h2>
+            <div class="categories">
+                <div class="category" onclick="filterProducts('frezery')">Фрези</div>
+                <div class="category" onclick="filterProducts('sverdla')">Свердла</div>
+                <div class="category" onclick="filterProducts('ruchky')">Ручні інструменти</div>
+                <div class="category" onclick="filterProducts('insha')">Інше</div>
             </div>
-            <div class="category-item">
-                <img src="images/turning_tool.jpg" alt="Токарні інструменти">
-                <h3>Токарні інструменти</h3>
-            </div>
-            <div class="category-item">
-                <img src="images/drilling_tool.jpg" alt="Свердла">
-                <h3>Свердла</h3>
+            <div class="products-grid">
+                <div class="product" data-category="frezery">
+                    <img src="images/tool1.jpg" alt="Фреза ЧПК">
+                    <h3>Фреза ЧПК</h3>
+                    <p>Ціна: 500 грн</p>
+                    <button class="add-to-cart">Додати до кошика</button>
+                </div>
+                <div class="product" data-category="sverdla">
+                    <img src="images/tool2.jpg" alt="Свердло ЧПК">
+                    <h3>Свердло ЧПК</h3>
+                    <p>Ціна: 300 грн</p>
+                    <button class="add-to-cart">Додати до кошика</button>
+                </div>
+                <!-- Додайте більше товарів при необхідності -->
             </div>
         </div>
     </section>
 
-    <!-- Секція каталогу товарів -->
-    <section id="catalog" class="product-catalog">
-        <h2>Каталог товарів</h2>
-        <div class="filter-bar">
-            <label for="sort">Сортувати за:</label>
-            <select id="sort">
-                <option value="popularity">Популярністю</option>
-                <option value="price-low">Ціною: від низької до високої</option>
-                <option value="price-high">Ціною: від високої до низької</option>
-            </select>
-
-            <label for="category-filter">Категорія:</label>
-            <select id="category-filter">
-                <option value="all">Всі</option>
-                <option value="milling">Фрези</option>
-                <option value="turning">Токарні інструменти</option>
-                <option value="drilling">Свердла</option>
-            </select>
+    <section id="cart" class="cart-section">
+        <div class="container">
+            <h2>Ваш Кошик</h2>
+            <table class="cart">
+                <thead>
+                    <tr>
+                        <th>Товар</th>
+                        <th>Кількість</th>
+                        <th>Ціна</th>
+                        <th>Всього</th>
+                        <th>Дії</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Додайте товари у кошику динамічно -->
+                    <tr>
+                        <td>Фреза ЧПК</td>
+                        <td>2</td>
+                        <td>500 грн</td>
+                        <td>1000 грн</td>
+                        <td><button class="remove-item">Видалити</button></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="product-list">
-            <div class="product-item" data-price="1000" data-popularity="5" data-category="milling">
-                <a href="product.html">
-                    <img src="images/tool1.jpg" alt="Фреза XYZ">
-                    <h3>Фреза XYZ</h3>
-                    <p>Опис продукту...</p>
-                    <p class="price">1000 грн</p>
-                </a>
-                <a href="#" class="btn-primary add-to-cart">Додати в кошик</a>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Контакти</h2>
+            <p>Зв'яжіться з нами для додаткової інформації:</p>
+            <form>
+                <label for="name">Ваше ім'я:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Ваш Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Повідомлення:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                
+                <button type="submit">Надіслати</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="admin" class="admin-panel">
+        <div class="container">
+            <h2>Адмін Панель</h2>
+            <div class="admin-options">
+                <button>Додати Товар</button>
+                <button>Редагувати Товар</button>
+                <button>Видалити Товар</button>
             </div>
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 ЧПК Інструмент. Всі права захищено.</p>
+        </div>
+    </footer>
+
+    <script>
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product');
+            products.forEach(product => {
+                if (category === 'all' || product.dataset.category === category) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
